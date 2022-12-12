@@ -4,7 +4,7 @@
 using UnityEngine;  // 這裡也可以加
 
 // 腳本，程式稱為類別，定義物件的藍圖，例如：蓋房子的藍圖
-// 藍圖轉為物件的方式
+// 藍圖轉為物件的方式：將腳本放在遊戲物件上
 public class FirstScript : MonoBehaviour
 {
     // 整理程式 Ctrl + K D

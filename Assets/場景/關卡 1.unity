@@ -2026,6 +2026,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fdec8e5b6b6bb784ba3d5d435ba8611e, type: 3}
   m_PrefabInstance: {fileID: 576017108}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &600860940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600860942}
+  - component: {fileID: 600860941}
+  m_Layer: 0
+  m_Name: "\u5B78\u7FD2\u6B04\u4F4D"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &600860941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600860940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fd0f31ff268944886f5637dfb50613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillCount: 7
+  speedTurn: 9.5
+  speedWalk: 3.7
+  namePet: "@\u76AE\u5361\u4E18@"
+  isGrounded: 1
+  isPass: 0
+  nameWeapon: "\u7F8E\u5DE5\u5200"
+  lv: 70
+  attack: 500
+  defense: 10
+  hasWeapon: 0
+  hp: 500
+  count: 0
+  hasProp: 0
+--- !u!4 &600860942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600860940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607352480
 GameObject:
   m_ObjectHideFlags: 0
