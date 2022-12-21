@@ -18,14 +18,20 @@ namespace KID
             ShootFire();
             ShootThund();
             ShootIce();
+
+            Shoot("毒");             // 呼叫時放在小括號的稱為引數
+            Shoot("光");             // 有預設值的參數可以不用填，選填式參數
+            Shoot("水", "噗噗噗");
         }
 
         // 方法
         // 語法：
-        // 修飾詞 傳回資料類型 方法名稱 ()
+        // 參數沒有數量限制，但建議不要太多
+        // 修飾詞 傳回資料類型 方法名稱 (參數類型 參數名稱，參數類型 參數名稱，...)
         // {
         // }
 
+        #region 方法練習
         // void 無
         private void Test()
         {
@@ -50,6 +56,13 @@ namespace KID
             print("球的屬性：冰");
             print("播放音效：無");
         }
+        #endregion
+
+        // 參數可以添加預設值，呼叫時可不用填
+        private void Shoot(string type, string sound = "咻咻咻")
+        {
+            print("<color=yellow>球的屬性：" + type + "</color>");
+            print("<color=yellow>播放音效：" + sound + "</color>");
+        }
     }
 }
-
