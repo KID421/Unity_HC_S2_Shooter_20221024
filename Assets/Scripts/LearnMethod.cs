@@ -22,6 +22,10 @@ namespace KID
             Shoot("毒");             // 呼叫時放在小括號的稱為引數
             Shoot("光");             // 有預設值的參數可以不用填，選填式參數
             Shoot("水", "噗噗噗");
+
+            // 火，咻咻咻，灰燼
+            // Shoot("火", "灰燼"); // 錯誤，灰燼跑錯地方
+            Shoot("火", effect: "灰燼");
         }
 
         // 方法
@@ -59,10 +63,19 @@ namespace KID
         #endregion
 
         // 參數可以添加預設值，呼叫時可不用填
-        private void Shoot(string type, string sound = "咻咻咻")
+        private void Shoot(string type, string sound = "咻咻咻", string effect = "光點")
         {
             print("<color=yellow>球的屬性：" + type + "</color>");
             print("<color=yellow>播放音效：" + sound + "</color>");
+            print($"<color=#3366ff>播放特效： {effect} </color>");
         }
+
+        /* 多行註解
+         * 錯誤範例：選填式參數要寫在右邊
+        private void WrongSample(string a = "哈囉", string b)
+        {
+
+        }
+        */
     }
 }
