@@ -30,6 +30,15 @@ namespace KID
 
         public Transform kid;
 
+        public BoxCollider boxCollider;
+        public AudioSource audioSource;
+        public Canvas canvas;
+
+        public Rigidbody sphere;
+        public Transform transformBox;
+        public Transform transformSphere;
+        public Transform transformCapsule;
+
         private void Awake()
         {
             // Random.value             // 靜態的語法
@@ -42,9 +51,25 @@ namespace KID
             cubeBox.center = new Vector3(0, 3, 0);
         }
 
+        private void Start()
+        {
+            print($"<color=#ff6666>立方體碰撞器尺寸：{ boxCollider.size }</color>");
+            print($"<color=#ff6666>音效來源的音量：{ audioSource.volume }</color>");
+            print($"<color=#ff6666>畫布的渲染模式：{ canvas.renderMode }</color>");
+
+            boxCollider.center = new Vector3(1, 3, 1);
+            audioSource.volume = 0.5f;
+            canvas.renderMode = RenderMode.WorldSpace;
+
+            sphere.AddForce(new Vector3(0, 1500, 0));       // 球體.添加推力(X, Y, Z)
+        }
+
         private void Update()
         {
             kid.Rotate(30, 0, 0);
+
+            transformBox.LookAt(transformSphere);           // 立方體.面向(球體)
+            transformCapsule.Translate(0, 0, 3);            // 膠囊體.位移(X, Y, Z)
         }
     }
 }
