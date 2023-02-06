@@ -19,26 +19,46 @@ namespace KID
         private float fireInterval = 0.5f;
         [SerializeField, Header("彈珠預製物")]
         private GameObject prefabMarble;
+        [SerializeField, Header("生成彈珠的位置")]
+        private Transform pointSpawnMarble;
+        [SerializeField, Header("箭頭物件")]
+        private GameObject goArrow;
 
         private string parAttack = "觸發攻擊";
         #endregion
 
-        [SerializeField, Header("生成彈珠的位置")]
-        private Transform pointSpawnMarble;
-
         #region 事件
         private void Awake()
         {
-            StartCoroutine(ShootMarble());
+            // StartCoroutine(ShootMarble());
         }
 
         private void Update()
         {
-            
+            InputManager();
         }
         #endregion
 
         #region 方法
+        /// <summary>
+        /// 輸入管理：偵測玩家按鍵
+        /// </summary>
+        private void InputManager()
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))       // 如果 按下左鍵
+            {
+                print("<color=green>按下左鍵</color>");
+            }
+            else if (Input.GetKey(KeyCode.Mouse0))      // 如果 按住左鍵
+            {
+                print("<color=yellow>按住左鍵</color>");
+            }
+            else if (Input.GetKeyUp(KeyCode.Mouse0))    // 如果 放開左鍵
+            {
+                print("<color=red>放開左鍵</color>");
+            }
+        }
+
         /// <summary>
         /// 發射彈珠
         /// </summary>
@@ -52,7 +72,7 @@ namespace KID
 
                 // 暫存彈珠.取得元件<剛體>().添加推力(X, Y, Z);
                 tempMarble.GetComponent<Rigidbody>().AddForce(0, 0, speedMarble);
-                
+
                 yield return new WaitForSeconds(fireInterval);
             }
         }
