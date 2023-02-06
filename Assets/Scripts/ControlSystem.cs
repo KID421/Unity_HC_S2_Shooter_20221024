@@ -23,6 +23,8 @@ namespace KID
         private Transform pointSpawnMarble;
         [SerializeField, Header("箭頭物件")]
         private GameObject goArrow;
+        [SerializeField, Header("玩家滑鼠位置")]
+        private Transform pointPlayerMouse;
 
         private string parAttack = "觸發攻擊";
         #endregion
@@ -48,15 +50,37 @@ namespace KID
             if (Input.GetKeyDown(KeyCode.Mouse0))       // 如果 按下左鍵
             {
                 print("<color=green>按下左鍵</color>");
+
+                goArrow.SetActive(true);                // 顯示 箭頭
             }
             else if (Input.GetKey(KeyCode.Mouse0))      // 如果 按住左鍵
             {
                 print("<color=yellow>按住左鍵</color>");
+
+                SetMousePosition();                     // 呼叫 設定滑鼠座標方法
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0))    // 如果 放開左鍵
             {
                 print("<color=red>放開左鍵</color>");
+
+                goArrow.SetActive(false);               // 隱藏 箭頭
+
+                StartCoroutine(ShootMarble());
             }
+        }
+
+        /// <summary>
+        /// 設定滑鼠座標
+        /// </summary>
+        private void SetMousePosition()
+        {
+            Vector3 posMouse = Input.mousePosition;                         // 滑鼠座標
+
+            print($"<color=#ff9966>滑鼠座標：{posMouse}</color>");
+
+            Vector3 posWorld = Camera.main.ScreenToWorldPoint(posMouse);    // 滑鼠座標轉為世界座標
+
+            print($"<color=#99ff66>轉換後的世界座標：{posWorld}</color>");
         }
 
         /// <summary>
