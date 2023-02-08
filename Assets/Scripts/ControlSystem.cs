@@ -105,8 +105,14 @@ namespace KID
                 // Quaternion.identity 零度角
                 GameObject tempMarble = Instantiate(prefabMarble, pointSpawnMarble.position, Quaternion.identity);
 
-                // 暫存彈珠.取得元件<剛體>().添加推力(X, Y, Z);
-                tempMarble.GetComponent<Rigidbody>().AddForce(0, 0, speedMarble);
+                // 暫存彈珠.取得元件<剛體>().添加推力(X, Y, Z);   // 世界座標
+                // tempMarble.GetComponent<Rigidbody>().AddForce(0, 0, speedMarble);
+
+                // X - trasform.right   紅色軸向
+                // Y - trasform.up      綠色軸向
+                // Z - trasform.forward 藍色軸向
+
+                tempMarble.GetComponent<Rigidbody>().AddForce(transform.forward * speedMarble);
 
                 yield return new WaitForSeconds(fireInterval);
             }
