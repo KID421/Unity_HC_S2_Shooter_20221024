@@ -76,11 +76,22 @@ namespace KID
         {
             Vector3 posMouse = Input.mousePosition;                         // 滑鼠座標
 
-            print($"<color=#ff9966>滑鼠座標：{posMouse}</color>");
+            posMouse.z = 7;                                                 // 滑鼠座標深度，與攝影機 Z 一樣
+
+            // print($"<color=#ff9966>滑鼠座標：{posMouse}</color>");
 
             Vector3 posWorld = Camera.main.ScreenToWorldPoint(posMouse);    // 滑鼠座標轉為世界座標
 
-            print($"<color=#99ff66>轉換後的世界座標：{posWorld}</color>");
+            // print($"<color=#99ff66>轉換後的世界座標：{posWorld}</color>");
+
+            pointPlayerMouse.position = posWorld;                           // 球體座標 = 新的座標
+
+            transform.LookAt(posWorld);                 // 此物件的座標面向(球體)
+
+            Vector3 angle = transform.eulerAngles;      // 取得角色座標
+            angle.x = 0;                                // X 歸零
+            angle.z = 0;                                // Z 歸零
+            transform.eulerAngles = angle;              // 角色座標 = 新的座標
         }
 
         /// <summary>
