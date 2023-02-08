@@ -76,7 +76,7 @@ namespace KID
         {
             Vector3 posMouse = Input.mousePosition;                         // 滑鼠座標
 
-            posMouse.z = 7;                                                 // 滑鼠座標深度，與攝影機 Z 一樣
+            posMouse.z = 10;                                                // 滑鼠座標深度，與攝影機 Y 一樣
 
             // print($"<color=#ff9966>滑鼠座標：{posMouse}</color>");
 
