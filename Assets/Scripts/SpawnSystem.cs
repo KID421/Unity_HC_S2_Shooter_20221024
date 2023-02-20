@@ -53,6 +53,25 @@ namespace KID
             {
                 boxRandom.RemoveAt(0);
             }
+
+            SpawnEnemy();
+        }
+
+        /// <summary>
+        /// 生成怪物
+        /// </summary>
+        private void SpawnEnemy()
+        {
+            // 生成 打亂格子 數量 的 隨機怪物
+            for (int i = 0; i < boxRandom.Count; i++)
+            {
+                int random = Random.Range(0, prefabEnemys.Length);
+
+                Instantiate(
+                    prefabEnemys[random], 
+                    boxRandom[i].position + new Vector3(0, 2, 0), 
+                    Quaternion.identity);
+            }
         }
         #endregion
     }

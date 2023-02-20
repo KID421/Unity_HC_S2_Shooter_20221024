@@ -2759,6 +2759,7 @@ MonoBehaviour:
   - {fileID: 862749018}
   countMin: 2
   countMax: 5
+  boxRandom: []
 --- !u!1001 &619640060
 PrefabInstance:
   m_ObjectHideFlags: 0
