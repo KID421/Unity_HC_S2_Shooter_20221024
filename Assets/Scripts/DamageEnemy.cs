@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¼Ä¤H¨ü¶Ë¨t²Î
+    /// æ•µäººå—å‚·ç³»çµ±
     /// </summary>
     public class DamageEnemy : DamageSystem
     {
