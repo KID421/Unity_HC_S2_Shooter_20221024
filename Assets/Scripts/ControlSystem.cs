@@ -49,19 +49,19 @@ namespace KID
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))       // 如果 按下左鍵
             {
-                print("<color=green>按下左鍵</color>");
+                // print("<color=green>按下左鍵</color>");
 
                 goArrow.SetActive(true);                // 顯示 箭頭
             }
             else if (Input.GetKey(KeyCode.Mouse0))      // 如果 按住左鍵
             {
-                print("<color=yellow>按住左鍵</color>");
+                // print("<color=yellow>按住左鍵</color>");
 
                 SetMousePosition();                     // 呼叫 設定滑鼠座標方法
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0))    // 如果 放開左鍵
             {
-                print("<color=red>放開左鍵</color>");
+                // print("<color=red>放開左鍵</color>");
 
                 goArrow.SetActive(false);               // 隱藏 箭頭
 
@@ -120,4 +120,3 @@ namespace KID
         #endregion
     }
 }
-

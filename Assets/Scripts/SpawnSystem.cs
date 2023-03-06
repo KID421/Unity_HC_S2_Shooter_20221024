@@ -38,10 +38,10 @@ namespace KID
         private void Spawn()
         {
             int countSpawn = Random.Range(countMin, countMax + 1);
-            print($"<color=#ff9966>生成怪物的隨機數量：{ countSpawn }</color>");
+            // print($"<color=#ff9966>生成怪物的隨機數量：{ countSpawn }</color>");
 
             int countToDelete = boxSecond.Length - countSpawn;
-            print($"<color=#99ff66>要刪除的格子數量：{ countToDelete }</color>");
+            // print($"<color=#99ff66>要刪除的格子數量：{ countToDelete }</color>");
 
             boxRandom = boxSecond.ToList();                             // 陣列 轉為 清單
 

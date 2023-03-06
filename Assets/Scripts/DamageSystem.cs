@@ -11,7 +11,7 @@ namespace KID
     public class DamageSystem : MonoBehaviour
     {
         [SerializeField, Header("基本資料")]
-        private DataBasic data;
+        protected DataBasic data;
         [SerializeField, Header("血條")]
         private Image imgHp;
         [SerializeField, Header("畫布傷害值")]
@@ -31,8 +31,8 @@ namespace KID
 
             textHp.text = hp.ToString();
 
-            Damage(80);
-            Damage(80);
+            // Damage(80);
+            // Damage(80);
         }
 
         /// <summary>
@@ -57,10 +57,16 @@ namespace KID
             if (hp <= 0) Dead();
         }
 
+        // public    公開：所有類別都可存取
+        // private   私人：只有此類別可存取
+        // protected 保護：此類別與子類別可存取
+
+        // virtual   虛擬：可被子類別複寫 override
+
         /// <summary>
         /// 死亡
         /// </summary>
-        private void Dead()
+        protected virtual void Dead()
         {
             hp = 0;
             textHp.text = hp.ToString();
