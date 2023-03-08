@@ -19,10 +19,9 @@ namespace KID
         private int countMin = 2;
         [SerializeField, Range(3, 10)]
         private int countMax = 5;
-        #endregion
-
         [SerializeField, Header("打亂的格子")]
         private List<Transform> boxRandom = new List<Transform>();  // 清單 List
+        #endregion
 
         #region 事件
         private void Awake()
@@ -35,7 +34,7 @@ namespace KID
         /// <summary>
         /// 生成
         /// </summary>
-        private void Spawn()
+        public void Spawn()
         {
             int countSpawn = Random.Range(countMin, countMax + 1);
             // print($"<color=#ff9966>生成怪物的隨機數量：{ countSpawn }</color>");
