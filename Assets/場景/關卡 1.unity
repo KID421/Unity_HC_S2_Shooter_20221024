@@ -12692,6 +12692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4de4d1c16cf5946813caabc78bd17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textFloor: {fileID: 1486122462}
 --- !u!65 &1421007047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15634,13 +15635,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedTurn: 10.5
-  countMarbleShoot: 3
+  countMarbleShoot: 10
   speedMarble: 1500
   fireInterval: 0.3
   prefabMarble: {fileID: 1166665241522616053, guid: 471cc899d5211b644a3f8f0cadf67471, type: 3}
   pointSpawnMarble: {fileID: 1921320143}
   goArrow: {fileID: 719961248}
   pointPlayerMouse: {fileID: 145216533}
+  canShoot: 1
 --- !u!4 &2061058886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400014, guid: d9a1483b77bf10e4e851678ab6c2e54e, type: 3}

@@ -29,6 +29,11 @@ namespace KID
         private string parAttack = "觸發攻擊";
         #endregion
 
+        /// <summary>
+        /// 玩家可不可以射擊
+        /// </summary>
+        public bool canShoot = true;
+
         #region 事件
         private void Awake()
         {
@@ -47,6 +52,9 @@ namespace KID
         /// </summary>
         private void InputManager()
         {
+            // 如果 不能射擊 就跳出 不執行下方程式
+            if (!canShoot) return;
+
             if (Input.GetKeyDown(KeyCode.Mouse0))       // 如果 按下左鍵
             {
                 // print("<color=green>按下左鍵</color>");
@@ -66,6 +74,9 @@ namespace KID
                 goArrow.SetActive(false);               // 隱藏 箭頭
 
                 StartCoroutine(ShootMarble());
+
+                // 不能射擊
+                canShoot = false;
             }
         }
 
