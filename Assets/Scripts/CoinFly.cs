@@ -14,8 +14,12 @@ namespace KID
 
         private Transform pointCoinTo;
 
+        private CoinSystem coinSystem;
+
         private void Awake()
         {
+            coinSystem = FindObjectOfType<CoinSystem>();
+
             pointCoinTo = GameObject.Find("金幣前往的位置").transform;
 
             // 延遲呼叫("方法名稱"，延遲秒數)
@@ -51,6 +55,7 @@ namespace KID
 
             if (distance <= 3)
             {
+                coinSystem.UpdateCoin();
                 Destroy(gameObject);
             }
         }
