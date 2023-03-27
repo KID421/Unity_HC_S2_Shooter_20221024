@@ -38,7 +38,7 @@ namespace KID
 
                 if (countMarbleRecycle == controlSystem.countMarbleShoot)
                 {
-                    print("<color=#ff6666>敵人回合</color>");
+                    // print("<color=#ff6666>敵人回合</color>");
 
                     EnemyTurn();
                 }
