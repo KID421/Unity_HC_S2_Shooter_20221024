@@ -11,6 +11,9 @@ namespace KID
         [SerializeField, Header("移動單位"), Range(0, 10)]
         private float moveDistance = 2;
 
+        [SerializeField, Header("移動終點")]
+        private float moveEnd = 3;
+
         private void Awake()
         {
             // StartMove();
@@ -36,6 +39,12 @@ namespace KID
             {
                 transform.position -= new Vector3(0, 0, z); // 物件往 -Z 軸移動
                 yield return new WaitForSeconds(0.03f);     // 等待
+            }
+
+            if (transform.position.z <= moveEnd)
+            {
+                print("對玩家造成傷害");
+                Destroy(gameObject);
             }
         }
     }
