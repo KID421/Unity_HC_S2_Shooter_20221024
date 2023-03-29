@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;  // 場景管理器 API
 
 namespace KID
 {
@@ -14,11 +15,17 @@ namespace KID
         public void Replay()
         {
             print("重新遊戲");
+
+            // 重新載入現在這個場景
+            string nameScene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(nameScene);
         }
 
         public void Quit()
         {
             print("離開遊戲");
+            // 應用程式.離開
+            Application.Quit();
         }
     }
 }
