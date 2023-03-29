@@ -11,11 +11,22 @@ namespace KID
         [SerializeField, Header("結束畫面底圖")]
         private CanvasGroup groupFinal;
 
+        private ControlSystem controlSystem;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            controlSystem = FindObjectOfType<ControlSystem>();
+        }
+
         protected override void Dead()
         {
             // base 父類別原本的內容
             base.Dead();
 
+            // 關閉控制系統讓玩家不能動
+            controlSystem.enabled = false;
             StartCoroutine(ShowFinal());
         }
 

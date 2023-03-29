@@ -24,7 +24,7 @@ namespace KID
         private float hp, hpMax;
         private string parDamage = "觸發受傷";
 
-        private void Awake()
+        protected virtual void Awake()
         {
             hp = data.hp;
             hpMax = hp;
