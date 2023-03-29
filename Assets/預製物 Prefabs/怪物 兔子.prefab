@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 2
+  moveEnd: 3
+  data: {fileID: 11400000, guid: b802376383a656b4a84665eb6ae57094, type: 2}
 --- !u!1001 &723627812652300123
 PrefabInstance:
   m_ObjectHideFlags: 0

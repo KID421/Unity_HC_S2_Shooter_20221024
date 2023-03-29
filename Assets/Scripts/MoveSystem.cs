@@ -10,13 +10,18 @@ namespace KID
     {
         [SerializeField, Header("移動單位"), Range(0, 10)]
         private float moveDistance = 2;
-
         [SerializeField, Header("移動終點")]
         private float moveEnd = 3;
+        [SerializeField, Header("怪物資料")]
+        private DataEnemy data;
+
+        private DamagePlayer damagePlayer;
 
         private void Awake()
         {
             // StartMove();
+
+            damagePlayer = FindObjectOfType<DamagePlayer>();
         }
 
         /// <summary>
@@ -41,9 +46,12 @@ namespace KID
                 yield return new WaitForSeconds(0.03f);     // 等待
             }
 
-            if (transform.position.z <= moveEnd)
+            // 判斷是否走到終點
+            // 無條件去小數點 Mathf.Floor()
+            if (Mathf.Floor(transform.position.z) <= moveEnd)
             {
-                print("對玩家造成傷害");
+                // print("對玩家造成傷害");
+                damagePlayer.Damage(data.attack);
                 Destroy(gameObject);
             }
         }

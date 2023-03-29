@@ -48,7 +48,10 @@ namespace KID
 
             // transform.position 此物件的座標
             // Quaternion.Euler(0, 0, 0) 指定角度
-            GameObject tempDamage = Instantiate(prefabDamage, transform.position, Quaternion.Euler(60, 0, 0));
+            GameObject tempDamage = Instantiate(
+                prefabDamage, 
+                transform.position + new Vector3(0, 1, 0), 
+                Quaternion.Euler(60, 0, 0));
 
             // transform.GetChild(編號) 取得子物件
             // GetComponent<元件>() 取得元件
