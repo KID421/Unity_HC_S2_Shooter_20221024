@@ -66,6 +66,7 @@ MonoBehaviour:
   prefabDamage: {fileID: 2377572350561374357, guid: 8b1e224e15c5c19448c97ff1d363908d, type: 3}
   textHp: {fileID: 2661635205758148691}
   ani: {fileID: 723627812642832955}
+  soundDamage: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
 --- !u!114 &6641482885669962082
 MonoBehaviour:
   m_ObjectHideFlags: 0

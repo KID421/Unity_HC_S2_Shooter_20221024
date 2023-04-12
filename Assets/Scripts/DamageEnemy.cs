@@ -15,6 +15,9 @@ namespace KID
         // 碰撞後持續執行　 Stay
         // 碰撞離開執行一次 Exit
 
+        [SerializeField, Header("受傷音效")]
+        private AudioClip soundDamage;
+
         private string nameMarble = "彈珠";
 
         // 將 DataBasic 轉為 DataEnemy 寫法
@@ -27,6 +30,7 @@ namespace KID
 
             if (collision.gameObject.name.Contains(nameMarble))
             {
+                SoundSystem.instance.PlaySound(soundDamage);
                 Damage(100);
             }
         }

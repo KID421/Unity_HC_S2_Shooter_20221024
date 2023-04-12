@@ -10,12 +10,15 @@ namespace KID
     {
         [SerializeField, Header("文字層數數字")]
         private TextMeshProUGUI textFloor;
+        [SerializeField, Header("最大層數"), Range(1, 50)]
+        private int maxFloor = 3;
 
         private int countFloor = 1;
         private string nameMarble = "彈珠";
         private int countMarbleRecycle;
         private ControlSystem controlSystem;
         private SpawnSystem spawnSystem;
+        private DamagePlayer damagePlayer;
 
         private void Awake()
         {
@@ -25,6 +28,8 @@ namespace KID
             spawnSystem = FindObjectOfType<SpawnSystem>();
             // 更新層數文字
             textFloor.text = countFloor.ToString();
+
+            damagePlayer = FindObjectOfType<DamagePlayer>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -58,9 +63,16 @@ namespace KID
                 moves[i].StartMove();
             }
 
-            // 生成下一波敵人
-            // 延遲呼叫(方法名稱，延遲時間)；
-            Invoke("SpawnNextEnemy", 0.8f);
+            if (countFloor < maxFloor)
+            {
+                // 生成下一波敵人
+                // 延遲呼叫(方法名稱，延遲時間)；
+                Invoke("SpawnNextEnemy", 0.8f);
+            }
+            else
+            {
+                PlayerTurn();
+            }
         }
 
         /// <summary>
@@ -80,8 +92,22 @@ namespace KID
         {
             controlSystem.canShoot = true;
             countMarbleRecycle = 0;
-            countFloor++;
-            textFloor.text = countFloor.ToString();
+            
+            if (countFloor < maxFloor)
+            {
+                countFloor++;
+                textFloor.text = countFloor.ToString();
+            }
+            // 否則 到達最大層數檢查有沒有怪物，沒有的話就勝利
+            else
+            {
+                DamageEnemy[] enemys = FindObjectsOfType<DamageEnemy>();
+
+                if (enemys.Length == 0)
+                {
+                    damagePlayer.StartShowFinal();
+                }
+            }
         }
     }
 }

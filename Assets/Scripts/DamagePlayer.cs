@@ -30,6 +30,14 @@ namespace KID
             StartCoroutine(ShowFinal());
         }
 
+        /// <summary>
+        /// 開始顯示結束畫面
+        /// </summary>
+        public void StartShowFinal()
+        {
+            StartCoroutine(ShowFinal());
+        }
+
         private IEnumerator ShowFinal()
         {
             // 結束畫面的透明度 +0.1 * 10 次

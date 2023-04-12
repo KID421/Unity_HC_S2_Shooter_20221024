@@ -34,6 +34,9 @@ namespace KID
         /// </summary>
         public bool canShoot = true;
 
+        [SerializeField, Header("發射音效")]
+        private AudioClip soundFire;
+
         #region 事件
         private void Awake()
         {
@@ -112,6 +115,9 @@ namespace KID
         {
             for (int i = 0; i < countMarbleShoot; i++)
             {
+                // 請音效系統播放音效(發射)
+                SoundSystem.instance.PlaySound(soundFire);
+
                 // 暫存彈珠 = 生成物件(要生成的物件，座標，角度)
                 // Quaternion.identity 零度角
                 GameObject tempMarble = Instantiate(prefabMarble, pointSpawnMarble.position, Quaternion.identity);
