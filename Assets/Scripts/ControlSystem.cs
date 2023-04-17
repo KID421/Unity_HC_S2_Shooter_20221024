@@ -25,21 +25,22 @@ namespace KID
         private GameObject goArrow;
         [SerializeField, Header("玩家滑鼠位置")]
         private Transform pointPlayerMouse;
+        [SerializeField, Header("發射音效")]
+        private AudioClip soundFire;
 
         private string parAttack = "觸發攻擊";
-        #endregion
+        private Animator ani;
 
         /// <summary>
         /// 玩家可不可以射擊
         /// </summary>
         public bool canShoot = true;
-
-        [SerializeField, Header("發射音效")]
-        private AudioClip soundFire;
+        #endregion
 
         #region 事件
         private void Awake()
         {
+            ani = GetComponent<Animator>();
             // StartCoroutine(ShootMarble());
         }
 
@@ -115,6 +116,8 @@ namespace KID
         {
             for (int i = 0; i < countMarbleShoot; i++)
             {
+                ani.SetTrigger(parAttack);
+
                 // 請音效系統播放音效(發射)
                 SoundSystem.instance.PlaySound(soundFire);
 
